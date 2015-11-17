@@ -1,7 +1,7 @@
 public class Human extends Creature
 {
-	public void SetUpStats()
+	public Human(int hp, int strength)
 	{
-    	SetStats(30, 18);
+    	super(hp, strength);
 	}
 }
