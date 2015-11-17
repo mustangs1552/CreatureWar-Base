@@ -11,9 +11,9 @@ public class Demon extends Creature
 	
 	public int DealDmg()
 	{
-    	Random rand = new Random();
-		int dmg = rand.nextInt(GetCurrStrength()) + 1;
+    	int dmg = super.DealDmg();
 		
+		Random rand = new Random();
 		if((rand.nextInt(100) + 1) <= percentChance)
 		{
 			dmg += 50;
