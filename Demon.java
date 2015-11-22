@@ -4,9 +4,9 @@ public class Demon extends Creature
 {
 	private int percentChance = 5;
 	
-	public Demon(int hp, int strength)
+	public Demon(String n, int hp, int strength)
 	{
-    	super(hp, strength);
+    	super("Demon", hp, strength);
 	}
 	
 	public int DealDmg()

@@ -8,6 +8,7 @@ import java.util.Random;
  */
 public class Creature
 {
+	private String name = "Creature";
 	private int minHP = 5;
 	private int minStrength = 5;
 	private int maxHP = 0;
@@ -15,9 +16,10 @@ public class Creature
 	private int currHP = 0;
 	private int currStrength = 0;
    
-	public Creature(int hp, int strength)
+	public Creature(String n, int hp, int strength)
 	{
-       SetStats(hp, strength);
+		name = n;
+        SetStats(hp, strength);
 	}
     
 	public int DealDmg()
@@ -26,6 +28,13 @@ public class Creature
 		int dmg = rand.nextInt(currStrength) + 1;
 		
 		return dmg;
+	}
+	public boolean TakeDmg(int dmg)
+	{
+    	currHP -= dmg;
+    	
+    	if(currHP <= 0) return true;
+    	else return false;
 	}
 	
 	private void SetStats(int hpMax, int sMax)
@@ -49,7 +58,7 @@ public class Creature
 		
 		// Set max values
 		Random rand = new Random();
-    	if(hpMax >= minHP)
+		if(hpMax >= minHP)
 		{
 			// Find a new random max until it is not less than min
 			while (maxHP < minHP)
@@ -68,9 +77,16 @@ public class Creature
 			}
 		}
 		
-		// Set the current stats to full/max stats
+		// Set the current level of the stats
 		currHP = maxHP;
-       	currStrength = maxStrength;
+		currStrength = maxStrength;
+	}
+	
+	public void DisplayStats()
+	{
+		System.out.println(" " + name);
+		System.out.println("  HP: " + currHP + "/" + maxHP);
+		System.out.println("  Strength: " + currStrength + "/" + maxStrength);
 	}
 	
 	// Getters
@@ -97,6 +113,10 @@ public class Creature
 	public int GetCurrStrength()
 	{
     	return currStrength;
+	}
+	public String GetName()
+	{
+		return name;
 	}
 }
 

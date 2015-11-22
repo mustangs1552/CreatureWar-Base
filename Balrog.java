@@ -2,7 +2,7 @@ public class Balrog extends Demon
 {
 	public Balrog(int hp, int strength)
 	{
-    	super(hp, strength);
+    	super("Balrog", hp, strength);
 	}
 	
 	public int DealDmg()

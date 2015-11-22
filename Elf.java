@@ -6,7 +6,7 @@ public class Elf extends Creature
 	
 	public Elf(int hp, int strength)
 	{
-    	super(hp, strength);
+    	super("Elf", hp, strength);
 	}
 	
 	public int DealDmg()
